@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Link, List, ListItem } from "@chakra-ui/react";
+import { Box, Container, Flex, Link, List, ListItem, Text } from "@chakra-ui/react";
 import { INavigationLink } from "../../types";
 import { CustomContainer } from "./container";
 
@@ -8,7 +8,7 @@ interface IFooterProps {
 
 const navigationStructure: INavigationLink[] = [
     {
-        name: "Gesundheit",
+        name: "Alltag",
         url: "/tbd",
         children: [
             {
@@ -16,8 +16,8 @@ const navigationStructure: INavigationLink[] = [
                 url: "/tierarzt",
             },
             {
-                name: "Lorem Ipsum",
-                url: "/lorem",
+                name: "Hundezonen",
+                url: "/hundezone",
             },
             {
                 name: "Lorem Ipsum",
@@ -74,12 +74,12 @@ const navigationStructure: INavigationLink[] = [
         ],
     },
     {
-        name: "Lorem Ipsum",
+        name: "Sonstiges",
         url: "/tbd",
         children: [
             {
-                name: "Lorem Ipsum",
-                url: "/lorem",
+                name: "Linksammlung",
+                url: "/links",
             },
             {
                 name: "Lorem Ipsum",
@@ -105,9 +105,9 @@ export const Footer = ({ children }: IFooterProps) => {
                     {navigationStructure.map(nav => {
                         return (
                             <Box key={nav.name} mb={[8, 0]}>
-                                <Link d="block" mb="4" fontSize="lg" fontWeight="bold" href={nav.url}>
+                                <Text d="block" mb="2" fontSize="lg" fontWeight="bold">
                                     {nav.name}
-                                </Link>
+                                </Text>
                                 {nav.children && (
                                     <List>
                                         {nav.children.map(navSub => {
