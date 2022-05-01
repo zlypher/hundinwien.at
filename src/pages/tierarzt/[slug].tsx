@@ -10,6 +10,11 @@ interface IVeterinarianDetailProps {
 }
 
 const VeterinarianDetail: NextPage<IVeterinarianDetailProps> = ({ data }) => {
+    if (!data) {
+        // TODO
+        return null;
+    }
+
     return (
         <CustomContainer>
             <TwoColumnLayout>
