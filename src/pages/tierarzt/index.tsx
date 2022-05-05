@@ -1,17 +1,17 @@
 import { Box, Container, Flex, Heading, Link, List, ListItem, Text } from "@chakra-ui/react";
-import type { NextPage } from "next";
+import type { GetStaticPropsResult, NextPage } from "next";
 import { IVeterinarian, vets } from "../../resources/vets";
 import NextLink from "next/link";
 import { CustomContainer } from "../../components/layout/container";
+import { IBasePageProps } from "../../types";
 
-interface IVeterinarianOverviewProps {
+interface IVeterinarianOverviewProps extends IBasePageProps {
     vets: IVeterinarian[];
 }
 
 const VeterinarianOverview: NextPage<IVeterinarianOverviewProps> = ({ vets }) => {
     return (
         <CustomContainer>
-            <Heading as="h1">Tierärzte</Heading>
             <List>
                 {vets.map((v: IVeterinarian) => (
                     <ListItem key={v.name}>
@@ -25,8 +25,16 @@ const VeterinarianOverview: NextPage<IVeterinarianOverviewProps> = ({ vets }) =>
     );
 };
 
-export async function getStaticProps() {
-    return { props: { vets } };
+export async function getStaticProps(): Promise<GetStaticPropsResult<IVeterinarianOverviewProps>> {
+    return {
+        props: {
+            vets,
+            header: {
+                headline: "Tierärzte in Wien",
+                color: "teal.100",
+            },
+        },
+    };
 }
 
 export default VeterinarianOverview;

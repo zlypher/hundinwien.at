@@ -4,8 +4,9 @@ import { CustomContainer } from "../../components/layout/container";
 import { SidebarCard } from "../../components/layout/sidebar/sidebard-card";
 import { TwoColumnLayout, TwoColumnMain, TwoColumnSide } from "../../components/layout/two-column-layout";
 import { IVeterinarian, vets } from "../../resources/vets";
+import { IBasePageProps } from "../../types";
 
-interface IVeterinarianDetailProps {
+interface IVeterinarianDetailProps extends IBasePageProps {
     data: IVeterinarian;
 }
 
@@ -45,7 +46,15 @@ export function getStaticProps(context: GetStaticPropsContext<{ slug: string }>)
         };
     }
 
-    return { props: { data: v } };
+    return {
+        props: {
+            data: v,
+            header: {
+                headline: "Tierarzt in Wien: " + v.name,
+                color: "teal.100",
+            },
+        },
+    };
 }
 
 export async function getStaticPaths() {

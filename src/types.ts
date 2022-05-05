@@ -3,3 +3,13 @@ export interface INavigationLink {
     url: string;
     children?: INavigationLink[];
 }
+
+export interface IHeader {
+    headline: string;
+    subheadline?: string;
+    color?: string; // TODO: Color
+}
+
+export interface IBasePageProps {
+    header: IHeader;
+}
