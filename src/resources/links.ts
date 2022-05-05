@@ -24,4 +24,17 @@ export const links: ILinkResourceCategory[] = [
         name: "Online Shops (International)",
         links: [],
     },
+    {
+        name: "Sonstiges",
+        links: [
+            {
+                name: "Österreichischer Kynologenverband",
+                url: "https://www.oekv.at/de/",
+            },
+            {
+                name: "Tierschutzhund.info",
+                url: "https://www.tierschutzhund.info/",
+            },
+        ],
+    },
 ];
