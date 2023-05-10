@@ -29,6 +29,8 @@ function MyApp({ Component, pageProps }: AppProps<IBasePageProps>) {
                     {/* <meta property="og:image" content="tbd" /> */}
 
                     <link rel="icon" href="/favicon.ico" />
+
+                    <script data-respect-dnt data-no-cookie async src="https://cdn.splitbee.io/sb.js"></script>
                 </Head>
                 <Component {...pageProps} />
             </DefaultLayout>
