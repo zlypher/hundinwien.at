@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import DefaultLayout from "../components/layout/default-layout";
 import customTheme from "../theme";
 import { IBasePageProps } from "../types";
+import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps }: AppProps<IBasePageProps>) {
     const title = "hundinwien.at";
@@ -29,10 +30,9 @@ function MyApp({ Component, pageProps }: AppProps<IBasePageProps>) {
                     {/* <meta property="og:image" content="tbd" /> */}
 
                     <link rel="icon" href="/favicon.ico" />
-
-                    <script data-respect-dnt data-no-cookie async src="https://cdn.splitbee.io/sb.js"></script>
                 </Head>
                 <Component {...pageProps} />
+                <Analytics />
             </DefaultLayout>
         </ChakraProvider>
     );
